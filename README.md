@@ -43,8 +43,9 @@
    a. Visit https://hackathon.navadhiti.com in any browser.
 
    b. Use these credentials to log in:
-   `     userId: dsep_bpp_test1_0008
-     password: nsdl@123
+   `
+   userId: dsep_bpp_test1_0008
+   password: nsdl@123
   `
 
    c. https://vimeo.com/802531928
