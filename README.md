@@ -1,6 +1,6 @@
 # hackathon
 
-1. Team Details
+## Team Details
 
    a. Navadhiti
 
@@ -13,11 +13,11 @@
    d. Raman, raman@navadhiti.com and 8570964282
    ```
 
-2. Source code
+##  Source code
 
    a. https://github.com/raman-nd/hackathon-navadhiti.git
 
-3. Product Documentation :
+##  Product Documentation :
 
    a. The problem that the proposed solution aims to address is the lack of accessibility and transparency in accessing scholarship and grant opportunities for education. Many students face financial barriers to accessing higher education, and scholarships and grants are a critical means of overcoming these barriers. However, the process of discovering and applying for these opportunities is often time-consuming, complex, and can be confusing for many students. This can create a significant challenge for those seeking financial aid for education.
 
@@ -35,13 +35,13 @@
 
    e. DESP API's
 
-4. Demo
+##  Demo
 
    a. https://vimeo.com/802531928
 
    b. https://hackathon.navadhiti.com
 
-5. User guide
+##  User guide
 
    a. Visit https://hackathon.navadhiti.com in any browser.
 
@@ -54,7 +54,7 @@
 
    c. https://vimeo.com/802531928
 
-6. Developer guide
+##  Developer guide
 
    a. Installing the node on the system
 
