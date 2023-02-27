@@ -1,0 +1,656 @@
+{
+	"info": {
+		"_postman_id": "b44f6e00-0fb5-4bed-907c-c4f9c730e5eb",
+		"name": "hackathon-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14117477"
+	},
+	"item": [
+		{
+			"name": "Applied",
+			"item": [
+				{
+					"name": "Award",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"remarks\": \"Application is rejected.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/applicant/award/{{applicantId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"applicant",
+								"award",
+								"{{applicantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"remarks\": \"Application is rejected.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/applicant/reject/{{applicantId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"applicant",
+								"reject",
+								"{{applicantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Applied",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/applicant/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"applicant",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Applied Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/applicant/{{applicantId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"applicant",
+								"{{applicantId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"dsep_bpp_test3_0008\",\n    \"password\": \"nsdl@123\",\n    \"fullName\": \"Test BPP7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"authToken\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"dsep_bpp_test1_0008\",\n    \"password\":\"nsdl@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Provider",
+			"item": [
+				{
+					"name": "Create Provider",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"providerId\", jsonData.message.replace(\"SchemeProviderID-\", \"\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"schemeProviderName\": \"Sun Education Foundation\",\n    \"schemeProviderDescription\": \"Education Foundation\",\n    \"schemeProviderWebsite\": \"https://www.sunedu.co.in\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/provider/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"provider",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Provider",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/provider/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"provider",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Provider By Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/provider/{{providerId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"provider",
+								"{{providerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Provider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"schemeProviderName\": \"Sun Education Foundation\",\n    \"schemeProviderDescription\": \"Education Foundation\",\n    \"schemeProviderWebsite\": \"https://www.sunedu.co.in\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/provider/{{providerId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"provider",
+								"{{providerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Provider",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/provider/{{providerId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"provider",
+								"{{providerId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scheme",
+			"item": [
+				{
+					"name": "Create Scheme",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"schemeId\", jsonData.message.replace(\"SchemeID-\", \"\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"schemeName\": \"TEST Undergraduation scholarship for Economically Backward Female Students\",\n    \"schemeDescription\": \"TEST Undergraduation scholarship for Economically Backward Female Students\",\n    \"schemeType\": \"SCHOLARSHIP\",\n    \"schemeFor\": \"ug\",\n    \"financialYear\": \"2022-2023\",\n    \"schemeAmount\": 30000,\n    \"startDate\": \"2023-01-01\",\n    \"endDate\": \"2023-02-28\",\n    \"eligibility\": {\n        \"acadDtls\": [\n            {\n                \"courseLevelID\": \"gr\",\n                \"courseLevelName\": \"Grade\",\n                \"courseName\": \"Grade 12\",\n                \"scoreType\": \"percentage\",\n                \"scoreValue\": 50,\n                \"passingYear\": \"2021\"\n            }\n        ],\n        \"gender\": \"Female\",\n        \"familyIncome\": \"2000000\"\n    },\n    \"addtnlInfoReq\": true,\n    \"spocName\": \"Mary G\",\n    \"spocEmail\": \"maryg@xyz.com\",\n    \"helpdeskNo\": \"9876543210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/scheme/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"scheme",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Scheme",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/scheme/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"scheme",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scheme By Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/scheme/{{schemeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"scheme",
+								"{{schemeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Scheme",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"schemeName\": \"TEST Undergraduation scholarship for Economically Backward Female Students\",\n    \"schemeDescription\": \"TEST Undergraduation scholarship for Economically Backward Female Students\",\n    \"schemeType\": \"SCHOLARSHIP\",\n    \"schemeFor\": \"ug\",\n    \"financialYear\": \"2022-2023\",\n    \"schemeAmount\": 30000,\n    \"startDate\": \"2023-01-01\",\n    \"endDate\": \"2023-02-28\",\n    \"eligibility\": {\n        \"acadDtls\": [\n            {\n                \"courseLevelID\": \"gr\",\n                \"courseLevelName\": \"Grade\",\n                \"courseName\": \"Grade 12\",\n                \"scoreType\": \"percentage\",\n                \"scoreValue\": 50,\n                \"passingYear\": \"2021\"\n            }\n        ],\n        \"gender\": \"Female\",\n        \"familyIncome\": \"2000000\"\n    },\n    \"addtnlInfoReq\": true,\n    \"spocName\": \"Mary G\",\n    \"spocEmail\": \"maryg@xyz.com\",\n    \"helpdeskNo\": \"9876543210\",\n    \"createdAt\": \"2023-01-11 00:41:55.941\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/scheme/{{schemeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"scheme",
+								"{{schemeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Scheme",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/scheme/{{schemeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"scheme",
+								"{{schemeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publish Scheme",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/scheme/publish/{{schemeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"scheme",
+								"publish",
+								"{{schemeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unpublish Scheme",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/scheme/unpublish/{{schemeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"scheme",
+								"unpublish",
+								"{{schemeId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

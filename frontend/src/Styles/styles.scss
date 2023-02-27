@@ -1,0 +1,19 @@
+:root {
+  --bg-main: #1e293b;
+  --bg-secondary: #f8fafc;
+
+  --text-main: #0f172a;
+  --text-secondary: #1e293b;
+
+  --submit-button-color: #14532d;
+}
+
+.h-max {
+  height: 100vh;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
