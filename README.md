@@ -5,10 +5,13 @@
    a. Navadhiti
 
    b. Member Details (Name, Email ID and Contact Number)
+
+   ```bash
    a. Shalini Chandrashekaran , shalini@navadhiti.com , 7483947420
    b. Dhanan, dhanan@navadhiti.com, 7676845749
    c. Elvin, elvin@navadhiti.com, 9916584768
    d. Raman, raman@navadhiti.com and 8570964282
+   ```
 
 2. Source code
 
@@ -43,10 +46,11 @@
    a. Visit https://hackathon.navadhiti.com in any browser.
 
    b. Use these credentials to log in:
-   `
+
+   ```bash
    userId: dsep_bpp_test1_0008
    password: nsdl@123
-  `
+   ```
 
    c. https://vimeo.com/802531928
 
