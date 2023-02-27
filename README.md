@@ -12,7 +12,7 @@
 
 2. Source code
 
-   a. Public codebase repo
+   a. https://github.com/raman-nd/hackathon-navadhiti.git
 
 3. Product Documentation :
 
@@ -24,7 +24,7 @@
 
    The effectiveness of a scholarships/grants provider platform will depend on several factors, such as the quality of the program, the ease of use of the platform, and the reach of its marketing and outreach efforts.
 
-   b. https://whimsical.com/h-KagPCmab1241GmtChphja2
+   b. https://github.com/raman-nd/hackathon-navadhiti/blob/main/screenshots/FlowChart.pptx.jpg
 
    c. Backend frameworks: Node.js, Express.js Frontend frameworks: React.js Programming languages: JavaScript and DESP API's
 
